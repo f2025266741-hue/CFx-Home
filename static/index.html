@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFx Home | Secure Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Entry Gate -->
+        <section id="entry-gate" class="screen">
+            <div class="glass-card">
+                <h1>🏠 CFx Home</h1>
+                <p>Access the specialized environment</p>
+                <div class="entry-options">
+                    <button id="btn-admin-gate" class="entry-btn active">Admin Access</button>
+                    <button id="btn-user-gate" class="entry-btn">User / Agent Entry</button>
+                    <button id="theme-toggle-entry" class="theme-btn" title="Toggle Theme">🌓</button>
+                </div>
+
+                <div id="admin-form" class="entry-form">
+                    <select id="admin-slot">
+                        <option value="1">Admin 1</option>
+                        <option value="2">Admin 2</option>
+                        <option value="3">Admin 3</option>
+                    </select>
+                    <input type="password" id="admin-password" placeholder="Shared Password">
+                    <button id="login-admin-btn" class="primary-btn">Enter Admin Command</button>
+                </div>
+
+                <div id="user-form" class="entry-form hidden">
+                    <input type="text" id="user-name" placeholder="Your Real Name">
+                    <input type="text" id="user-code" placeholder="Confirmation Code">
+                    <button id="login-user-btn" class="primary-btn">Request Entry</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Dashboard -->
+        <section id="dashboard" class="screen hidden">
+            <header>
+                <div class="logo">🏠 CFx Home</div>
+                <div id="user-info">
+                    <button id="theme-toggle" class="theme-btn" title="Toggle Theme">🌓</button>
+                    <span id="display-role"></span>
+                    <span id="display-name"></span>
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </header>
+
+            <main>
+                <aside id="sidebar">
+                    <div class="nav-item active" data-portal="3">Portal 3: Public Void</div>
+                    <div class="nav-item" data-portal="2" id="nav-portal2">Portal 2: Direct Comms</div>
+                    <div class="nav-item hidden" id="nav-portal1" data-portal="1">Portal 1: Core Admin</div>
+                    <div class="nav-item hidden" id="nav-portal4" data-portal="4">Portal 4: Agent Ops</div>
+
+                    <div class="divider"></div>
+
+                    <div id="admin-controls" class="hidden">
+                        <h3>Admin Tools</h3>
+                        <button id="btn-link-store">Link Store</button>
+                        <button id="btn-announcements">Announcements</button>
+                        <button id="btn-change-pw">Change Admin Password</button>
+                        <div class="toggle-container">
+                            <label>Availability</label>
+                            <input type="checkbox" id="toggle-availability">
+                        </div>
+                    </div>
+                </aside>
+
+                <section id="chat-container">
+                    <div id="portal-header">
+                        <h2 id="portal-title">Public Void</h2>
+                        <div id="portal-desc">Anonymous peer-to-peer interaction.</div>
+                    </div>
+                    <div id="messages"></div>
+                    <div id="input-area">
+                        <input type="text" id="message-input" placeholder="Type a message...">
+                        <button id="send-btn">Send</button>
+                    </div>
+                </section>
+
+                <aside id="resource-panel">
+                    <h3>Announcements</h3>
+                    <div id="announcement-list"></div>
+                    <h3>Link Store</h3>
+                    <div id="link-list"></div>
+                </aside>
+            </main>
+        </section>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="hidden">
+        <div class="modal glass-card">
+            <h2 id="modal-title"></h2>
+            <div id="modal-content"></div>
+            <div class="modal-actions">
+                <button id="modal-close">Close</button>
+                <button id="modal-save" class="primary-btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
